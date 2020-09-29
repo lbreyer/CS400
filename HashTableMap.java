@@ -90,6 +90,37 @@ public class HashTableMap implements MapADT<Integer, String> {
       return true;
     }
   }
+  
+  /**
+   * Allows for patients to be added from a formatted text file.
+   * 
+   * @param file - the file to read from
+   */
+  public void filePut(File file) {
+    try {
+      Scanner input = new Scanner(file);
+      while (input.hasNext()) {
+        String name = input.next() + input.next();
+        int location = input.nextInt();
+        int floor = input.nextInt();
+        boolean covid = input.nextBoolean();
+        int covidVal;
+        if (covid) {
+          covidVal = 1;
+        }
+        else {
+          covidVal = 0;
+        }
+        int age = input.nextInt();
+        int uid = input.nextInt();
+        int ID = buildID(location, floor, covidVal, age, uid);
+        put(ID, name);
+      }
+      input.close();
+    } catch (FileNotFoundException expt) {
+      System.out.println("ERROR: File not found!");
+    }
+  }
 
   /**
    * If the size becomes greater than or equal to 80% of the capacity, this method is called to
