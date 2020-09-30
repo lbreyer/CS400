@@ -8,12 +8,12 @@ public class PatientSystemUI {
   private static HashTableMap systemMap;
 
   /**
-   * A helper method that reads a line of input, converts it to lowercase and returns the first
-   * character in the line.
+   * A helper method that reads a line of input, converts it to lowercase and
+   * returns the first character in the line.
    *
    * @param sc The scanner from which to read the input line.
-   * @return The first character from the line converted to lowercase, or '\0' if there is no first
-   *         character.
+   * @return The first character from the line converted to lowercase, or '\0' if
+   *         there is no first character.
    */
   public static char readChar(Scanner sc) {
     String temp = sc.nextLine();
@@ -28,8 +28,8 @@ public class PatientSystemUI {
   }
 
   /**
-   * Add Patient - allows the user to add patients to the system. Prompts the user for each required
-   * field.
+   * Add Patient - allows the user to add patients to the system. Prompts the user
+   * for each required field.
    * 
    * @param scnr - The Scanner object to be used. Passed by calling method.
    */
@@ -53,9 +53,9 @@ public class PatientSystemUI {
 
     // Prompts and verifies a valid patient location
     System.out.println("Please select patient location:\n" + "(A) UW Health East Clinic\n"
-        + "(B) UW Health University Hospital\n" + "(C) UW Health West Clinic\n"
-        + "(D) UW Health 20 S. Park Clinic\n" + "(E) American Family Children's Hospital\n"
-        + "(F) UnityPoint Health - Meriter\n" + "(G) Arboretum Clinic\n" + "(H) Oakwood Clinic\n");
+        + "(B) UW Health University Hospital\n" + "(C) UW Health West Clinic\n" + "(D) UW Health 20 S. Park Clinic\n"
+        + "(E) American Family Children's Hospital\n" + "(F) UnityPoint Health - Meriter\n" + "(G) Arboretum Clinic\n"
+        + "(H) Oakwood Clinic\n");
 
     pass = false;
     char locTmp = 0;
@@ -150,12 +150,12 @@ public class PatientSystemUI {
 
     // Adds the new patient to the hash table
     systemMap.put(hashID, name);
-    System.out.println("Patient " + hashID + "has been added.");
+    System.out.println("Patient " + hashID + " has been added.");
   }
 
   /**
-   * Discharge Patient - allows the user to remove patients from the system. Prompts the user for
-   * the patientID of the patient to be removed.
+   * Discharge Patient - allows the user to remove patients from the system.
+   * Prompts the user for the patientID of the patient to be removed.
    * 
    * @param scnr - The Scanner object to be used. Passed by calling method.
    */
@@ -184,13 +184,14 @@ public class PatientSystemUI {
     if (removed == null) {
       System.out.println("A patient with the ID " + patientID + " could not be found.");
     } else {
-      System.out.println("Patient " + removed + "has been discharged.");
+      System.out.println("Patient " + removed + " has been discharged.");
     }
   }
 
   /**
-   * Display Patient - allows the user to display all the information in a patient's file from the
-   * system. Prompts the user for the patientID of the patient to be displayed.
+   * Display Patient - allows the user to display all the information in a
+   * patient's file from the system. Prompts the user for the patientID of the
+   * patient to be displayed.
    * 
    * @param scnr - The Scanner object to be used. Passed by calling method.
    */
@@ -241,8 +242,9 @@ public class PatientSystemUI {
   }
 
   /**
-   * Display Info - allows the user to specific information in a patient's file from the system.
-   * Prompts the user for the patientID of the patient to be displayed.
+   * Display Info - allows the user to specific information in a patient's file
+   * from the system. Prompts the user for the patientID of the patient to be
+   * displayed.
    * 
    * @param scnr - The Scanner object to be used. Passed by calling method.
    */
@@ -278,9 +280,8 @@ public class PatientSystemUI {
 
     // Prompts the user for a value to display and displays the selected field
     System.out.println("--=Patient: " + patientID + ", " + patient.getValue() + "=--");
-    System.out.println(
-        "Please select information to display:\n" + "(A) - Location\n" + "(B) - Floor Number\n"
-            + "(C) - Initial COVID Test Results\n" + "(D) - Age\n" + "(E) - Patient UID\n");
+    System.out.println("Please select information to display:\n" + "(A) - Location\n" + "(B) - Floor Number\n"
+        + "(C) - Initial COVID Test Results\n" + "(D) - Age\n" + "(E) - Patient UID\n");
     pass = false;
     char selectTmp;
     while (!pass) {
@@ -320,8 +321,8 @@ public class PatientSystemUI {
   }
 
   /**
-   * Display COVID Stats - allows the user to display the COVID data for the patients within the
-   * system.
+   * Display COVID Stats - allows the user to display the COVID data for the
+   * patients within the system.
    * 
    */
   public static void cvdStats() {
@@ -334,7 +335,8 @@ public class PatientSystemUI {
   }
 
   /**
-   * List Patients - Lists all the patients and their Patient IDs currently within the system.
+   * List Patients - Lists all the patients and their Patient IDs currently within
+   * the system.
    * 
    */
   public static void listPatients() {
@@ -343,26 +345,27 @@ public class PatientSystemUI {
   }
 
   /**
-   * Help - Provides additional information about each of the available user commands.
+   * Help - Provides additional information about each of the available user
+   * commands.
    * 
    */
   public static void help() {
     System.out.println("----===Help===----");
     System.out.println("(A) - Add Patient\n"
         + "-Allows you to add a new patient to the system.\nYou will be prompted for:\n-Patient Name\n"
-        + "-Patient Age\n-Patient Treatment Location\n-Patient Floor\n"
-        + "-Patient COVID Test Results\n" + "-Patient UID\n");
-    System.out.println("(R) - Discharge Patient\n"
-        + "-Allows you to discharge patients from the system by their Patient ID.\n");
+        + "-Patient Age\n-Patient Treatment Location\n-Patient Floor\n" + "-Patient COVID Test Results\n"
+        + "-Patient UID\n");
+    System.out.println(
+        "(R) - Discharge Patient\n" + "-Allows you to discharge patients from the system by their Patient ID.\n");
     System.out.println("(D) - Display Patient File\n"
         + "-Displays all the information stored in the system's patient file for a selected patient.\n");
     System.out.println("(G) - Get Patient Information\n"
         + "-Allows you to look up specific information from a selected patient's file.\n");
-    System.out.println("(C) - Display COVID Statistics\n"
-        + "-Displays the COVID information for the patients within this system.\n"
-        + "-Based on their initial COVID test results.\n");
-    System.out.println("(L) - List All Patients\n"
-        + "-Lists all patients currently within the system by Patient ID.\n");
+    System.out.println(
+        "(C) - Display COVID Statistics\n" + "-Displays the COVID information for the patients within this system.\n"
+            + "-Based on their initial COVID test results.\n");
+    System.out
+        .println("(L) - List All Patients\n" + "-Lists all patients currently within the system by Patient ID.\n");
     System.out.println("If you have forgotten the Patient ID for a patient, \n"
         + "you can use List to list all patients and their IDs by UID.");
   }
@@ -379,8 +382,7 @@ public class PatientSystemUI {
       System.out.print("*");
     }
     System.out.println("");
-    System.out
-        .println("Welcome to the CS400 patient management system.\nHow can I help you today?");
+    System.out.println("Welcome to the CS400 patient management system.\nHow can I help you today?");
     int optMark = 1;
     int quit = 0;
     while (quit == 0) {
@@ -389,10 +391,9 @@ public class PatientSystemUI {
       }
       System.out.println("");
       if (optMark == 1) {
-        System.out.println("(A) - Add Patient\n" + "(R) - Discharge Patient\n"
-            + "(D) - Display Patient File\n" + "(G) - Get Patient Information\n"
-            + "(C) - Display COVID Statistics\n" + "(L) - List All Patients\n"
-            + "(H) - Help(Provides more information about each command)\n");
+        System.out.println("(A) - Add Patient\n" + "(R) - Discharge Patient\n" + "(D) - Display Patient File\n"
+            + "(G) - Get Patient Information\n" + "(C) - Display COVID Statistics\n" + "(L) - List All Patients\n"
+            + "(H) - Help(Provides more information about each command)\n" + "(E) - Exit\n");
         optMark = 0;
       }
       System.out.println("Please type your choice((?) for full menu): ");
@@ -420,6 +421,10 @@ public class PatientSystemUI {
           break;
         case ('h'):
           help();
+          break;
+        case ('e'):
+          System.out.println("Thank you! Bye!");
+          System.exit(0);
           break;
         case ('?'):
           optMark = 1;
