@@ -160,9 +160,9 @@ public class Tests {
 	 */
 	public static boolean testContainsKey() {
 		HashTableMap map = new HashTableMap();
-		PatientNode patient1 = new PatientNode(131471125, "Marcus Peters");
-		PatientNode patient2 = new PatientNode(220777239, "John Doe");
-		PatientNode patient3 = new PatientNode(481237436, "Gary Dahl");
+		PatientNode patient1 = new PatientNode(131072125, "Marcus Peters");
+		PatientNode patient2 = new PatientNode(220077239, "John Doe");
+		PatientNode patient3 = new PatientNode(481023436, "Gary Dahl");
 
 		map.put(patient1.getKey(), patient1);
 		map.put(patient2.getKey(), patient2);
@@ -178,6 +178,49 @@ public class Tests {
 		return true;
 	}
 
+	/**
+	 * Method that tests the PatientNode class creates a patient with all specified
+	 * qualities, such as location, floor, COVID +/-, age, user ID, name.
+	 * 
+	 * @return true if all tests passed, false otherwise.
+	 */
+	public static boolean testPatientNode() {
+		int location = 2;
+		int floor = 3;
+		int covid = 1;
+		int age = 102;
+		int ID = 628;
+		String name = "Matthew Thompson";
+		
+		HashTableMap map = new HashTableMap();
+		Integer patientID = map.buildID(location, floor, covid, age, ID);
+		
+		PatientNode patient = new PatientNode(patientID, name);
+		
+		if (patient.getAge() != age) {
+			return false;
+		}
+		
+		if (patient.getFloor() != 3) {
+			System.out.println(patient.getFloor());
+			return false;
+		}
+		
+		if (patient.getCovid() != covid) {
+			return false;
+		}
+		
+		if (!patient.getLocation().equals("UW Health University Hospital")) {
+			return false;
+		}
+		
+		if (patient.getuID() != ID) {
+			return false;
+		}
+		
+		return true;
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Initializing tests...");
 		System.out.println("- Result for testPut(): " + testPut());
@@ -185,5 +228,6 @@ public class Tests {
 		System.out.println("- Result for testResize(): " + testResize());
 		System.out.println("- Result for testRemove(): " + testRemove());
 		System.out.println("- Result for testContainsKey(): " + testContainsKey());
+		System.out.println("- Result for testPatientNode(): " + testPatientNode());
 	}
 }
